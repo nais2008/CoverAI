@@ -1,0 +1,9 @@
+{
+  "name": "GoWave",
+  "version": "1.0.0",
+  "description": "AI project",
+  "main": "index.ts",
+  "repository": "https://github.com/nais2008/GoWave",
+  "author": "nice2008 <t09n09a08@gmail.com>",
+  "license": "MIT"
+}
