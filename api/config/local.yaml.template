@@ -1,0 +1,7 @@
+env: "local"
+storage_path: "путь/к/бд"
+http_server:
+  addres: "localhost:8082"
+  timeout: 4s
+  idle_timeouts: 60s
+
