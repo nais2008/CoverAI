@@ -25,4 +25,4 @@ class PersonalData(django.db.models.Model):
 
 
 class Feedback(django.db.models.Model):
-    
+    pass
