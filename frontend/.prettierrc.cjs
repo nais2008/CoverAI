@@ -3,7 +3,7 @@ module.exports = {
   bracketSpacing: true,
   endOfLine: 'auto',
   printWidth: 120,
-  singleQuote: true,
+  singleQuote: false,
   overrides: [
     {
       files: ['**.*.scss', '*.scss'],
