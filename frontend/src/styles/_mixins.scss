@@ -1,0 +1,34 @@
+@mixin blockGlassMixin(
+  $brightBack,
+  $brightBorder,
+  $borderRadius: 0,
+){
+  background-color: rgba(
+    $color: #ffffff,
+    $alpha: $brightBack,
+  );
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(
+      $color: #ffffff,
+      $alpha: $brightBorder,
+  );
+  box-shadow: 0 0 30px rgba($color: #ffffff, $alpha: .05);
+
+  @if $borderRadius == 0{
+    border-radius: 10px;
+  } @else {
+    border-radius: $borderRadius;
+  }
+}
+
+@mixin btnMixin(
+  $x: 10px,
+  $y: 15px,
+  $fontSize: 16px,
+  $brightBack: .08,
+  $brightBorder: .08,
+){
+  @include blockGlassMixin($brightBack, $brightBorder, 50px);
+  padding: $x $y;
+  font-size: $fontSize;
+}

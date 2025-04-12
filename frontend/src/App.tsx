@@ -1,16 +1,19 @@
 import { Routes, Route } from 'react-router-dom'
 
 import MainPage from "./pages/MainPage"
-import Navigation from './components/Navigation'
+
+import Header from './components/Header'
 
 
 function App() {
   return (
     <>
-      <Navigation />
-      <Routes>
-        <Route path="/" element={ <MainPage /> }></Route>
-      </Routes>
+      <Header />
+      <main>
+        <Routes>
+          <Route path="/" element={ <MainPage /> }></Route>
+        </Routes>
+      </main>
     </>
   )
 }
