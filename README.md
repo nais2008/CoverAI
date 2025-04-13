@@ -1,6 +1,6 @@
-# Project Name
+# CoverAI
 
-> Предпологается что вы воспроизводете все команды из коря проекта
+> Предпологается что вы воспроизводете все команды из корня проекта
 
 ## Frontend
 
@@ -8,14 +8,14 @@
 
 ```cmd
 cd ./frontend/
-npm install
+yarn install
 ```
 
 ### Запуск в dev режиме
 
 ```cmd
 cd ./frontend/
-npm run dev
+yarn run dev
 ```
 
 ## API
@@ -25,18 +25,4 @@ npm run dev
 ```cmd
 cd ./api/
 go run ./cmd/main.go
-```
-
-### Конфиг
-
-Путь к конфигу настраивается в env файле, сам конфиг выглядит так:
-
-```yaml
-env: "local"
-storage_path: "путь/к/бд"
-http_server:
-  addres: "localhost:8082"
-  timeout: 4s
-  idle_timeouts: 60s
-
 ```
