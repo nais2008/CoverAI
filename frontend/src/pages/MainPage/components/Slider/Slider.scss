@@ -1,0 +1,42 @@
+@use "../../../../styles/variables";
+
+.sliderBlock__header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .slider-btn{
+    display: flex;
+    gap: 40px;
+    align-items: center;
+
+    .btn_prev img{
+      rotate: 180deg;
+    }
+    .btn{
+      width: 80px;
+      height: 80px;
+      display: grid;
+      place-content: center;
+    }
+  }
+}
+h1{
+  font-size: 48px;
+  width: 450px;
+}
+.swiper-slide{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-block: 20px;
+  font-size: 16;
+  color: variables.$textColorSecond;
+
+  img{
+    width: 100%;
+    height: 250px;
+    background-color: variables.$textColorSecond;
+    border-radius: 10px;
+  }
+}

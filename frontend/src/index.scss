@@ -54,6 +54,29 @@ ul{
   list-style: none;
 }
 
+::-webkit-scrollbar {
+  width: variables.$sb-size;
+}
+
+::-webkit-scrollbar-track {
+  background:variables.$sb-track-color;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: variables.$sb-thumb-color;
+  border-radius: 20px;
+
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color:
+      variables.$sb-thumb-color
+      variables.$sb-track-color;
+  }
+}
+
 body{
   background: variables.$back;
   background-repeat: no-repeat;

@@ -1,8 +1,8 @@
 import { NavLink, Link } from "react-router-dom";
 
-import coverLogo from "/logo.svg"
-
 import "./Header.scss"
+
+import coverLogo from "/logo.svg"
 
 export const Header = () => {
   return (
@@ -33,7 +33,7 @@ export const Header = () => {
       </nav>
       <div className="links">
         <Link className="btn btn_header" to="/chat">Try CoverAI</Link>
-        <Link className="btn btn_header" to="/chat">Sign Up</Link>
+        <Link className="btn btn_header" to="/auth">Sign Up</Link>
       </div>
     </header>
   )
