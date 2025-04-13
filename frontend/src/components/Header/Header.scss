@@ -6,7 +6,6 @@
 
 header{
   display: flex;
-  padding: 20px;
   justify-content: space-between;
 
   .logo{
@@ -42,17 +41,20 @@ header{
         40px,
       );
       padding: 15px 30px;
+
+      li > a.active{
+        font-weight: 700;
+      }
     }
   }
 
-  .links > a{
-    background-color: rgba(
-      $color: #ffffff,
-      $alpha: .05,
-    );
-    border: 1px solid rgba(
-        $color: #ffffff,
-        $alpha: .05,
-    );
+  .links > .btn_header{
+    @include mixins.btnMixin(
+      15px,
+      15px,
+      16px,
+      .05,
+      .05,
+    )
   }
 }

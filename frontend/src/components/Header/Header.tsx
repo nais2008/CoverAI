@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 import coverLogo from "/logo.svg"
 
@@ -14,16 +14,26 @@ export const Header = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/">CoverAI</Link>
+            <NavLink
+              to="/"
+              className={({ isActive }) => isActive ? "active" : ""}
+            >
+             CoverAI
+            </NavLink>
           </li>
           <li>
-            <Link to="/">API</Link>
+            <NavLink
+              to="/api"
+              className={({ isActive }) => isActive ? "active" : ""}
+            >
+              API
+            </NavLink>
           </li>
         </ul>
       </nav>
       <div className="links">
-        <Link className="btn" to="/chat">Try CoverAI</Link>
-        <Link className="btn" to="/chat">Sign Up</Link>
+        <Link className="btn btn_header" to="/chat">Try CoverAI</Link>
+        <Link className="btn btn_header" to="/chat">Sign Up</Link>
       </div>
     </header>
   )

@@ -7,12 +7,12 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "components": ["components/*"],
-      "config": ["config/*"],
-      "styles": ["styles/*"],
-      "utils": ["utils/*"],
-      "pages": ["pages/*"],
-      "store": ["store/*"]
+      "components/*": ["components/*"],
+      "config/*": ["config/*"],
+      "styles/*": ["styles/*"],
+      "utils/*": ["utils/*"],
+      "pages/*": ["pages/*"],
+      "store/*": ["store/*"]
     }
   },
   "browserslist": ["ie 11"]

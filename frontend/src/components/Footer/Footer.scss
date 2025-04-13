@@ -1,0 +1,44 @@
+@use "../../styles/animations";
+@use "../../styles/mixins";
+@use "../../styles/variables";
+
+footer{
+  @include mixins.blockGlassMixin(.05, .05, 40px);
+  padding-block: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 40px;
+  position: relative;
+  z-index: 2;
+
+  section{
+    ul{
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+    }
+  }
+  p{
+    flex-basis: 100%;
+    font-weight: 700;
+    text-align: center;
+    color: variables.$textColorSecond;
+  }
+  &::before{
+    @include mixins.gradientMixin(
+      600px,
+      200px,
+      150px,
+      linear-gradient(
+        -45deg,
+        #ee7752,
+        #e73c7e,
+        #23a6d5,
+        #23d5ab,
+        #8772FF,
+      )
+    )
+  }
+}

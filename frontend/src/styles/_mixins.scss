@@ -1,3 +1,5 @@
+@use "./animations";
+
 @mixin blockGlassMixin(
   $brightBack,
   $brightBorder,
@@ -31,4 +33,33 @@
   @include blockGlassMixin($brightBack, $brightBorder, 50px);
   padding: $x $y;
   font-size: $fontSize;
+  cursor: pointer;
+  transition: background-color .2s;
+
+  &:hover{
+    background-color: rgba(
+      $color: #FFF,
+      $alpha: $brightBack + 0.05,
+    );
+  }
+}
+
+@mixin gradientMixin(
+  $width,
+  $height,
+  $blur,
+  $gradient,
+){
+  z-index: -1;
+    content: "";
+    position: absolute;
+    top:50%;
+    left: 50%;
+    width: $width;
+    height: $height;
+    transform: translate(-50%, -50%);
+    background: $gradient;
+    background-size: 200% 200%;
+    filter: blur($blur);
+    animation: gradient 15s ease infinite;
 }

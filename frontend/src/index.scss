@@ -13,7 +13,7 @@
   color: variables.$textColor;
 
   font: {
-    family: "Text-r", sans-serif;
+    family: "Text", sans-serif;
     weight: 400;
     size: 16px;
   };
@@ -27,6 +27,27 @@ h1, h2, h3{
 
 a{
   text-decoration: none;
+  position: relative;
+}
+a:not(.btn, :has(img)){
+  &::after{
+    content: "";
+    display: block;
+    height: 2px;
+    border-radius: 20px;
+    background: variables.$textColor;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    transition:
+      width .2s cubic-bezier(0.215, 0.61, 0.355, 1),
+      left  .2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  &:hover::after{
+    left: 0;
+    width: 100%;
+  }
 }
 
 ul{
@@ -42,6 +63,7 @@ body{
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  padding: 20px;
 }
 
 main{
@@ -49,7 +71,7 @@ main{
 }
 
 .btn{
-  @include mixins.btnMixin(15px, 15px, 16px)
+  @include mixins.btnMixin(15px, 15px, 16px);
 }
 
 .links{
