@@ -1,0 +1,104 @@
+@use "./styles/mixins";
+@use "./styles/variables";
+
+// временный костыль
+@import url("./styles/_fonts.scss");
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  color: variables.$textColor;
+
+  font: {
+    family: "Text", sans-serif;
+    weight: 400;
+    size: 16px;
+  };
+}
+
+h1, h2, h3{
+  font: {
+    family: "Headline", sans-serif;
+  };
+}
+
+a{
+  text-decoration: none;
+  position: relative;
+}
+a:not(.btn, :has(img)){
+  &::after{
+    content: "";
+    display: block;
+    height: 2px;
+    border-radius: 20px;
+    background: variables.$textColor;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    transition:
+      width .2s cubic-bezier(0.215, 0.61, 0.355, 1),
+      left  .2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  &:hover::after{
+    left: 0;
+    width: 100%;
+  }
+}
+
+ul{
+  list-style: none;
+}
+
+::-webkit-scrollbar {
+  width: variables.$sb-size;
+}
+
+::-webkit-scrollbar-track {
+  background:variables.$sb-track-color;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: variables.$sb-thumb-color;
+  border-radius: 20px;
+
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color:
+      variables.$sb-thumb-color
+      variables.$sb-track-color;
+  }
+}
+
+body{
+  background: variables.$back;
+  background-repeat: no-repeat;
+}
+
+#root{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+main{
+  flex: 1 1 auto;
+}
+
+.btn{
+  @include mixins.btnMixin(15px, 15px, 16px);
+}
+
+.links{
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}

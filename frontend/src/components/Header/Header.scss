@@ -1,0 +1,60 @@
+@use "../../styles/animations";
+@use "../../styles/mixins";
+
+// временный костыль
+@import url("../../styles/_fonts.scss");
+
+header{
+  display: flex;
+  justify-content: space-between;
+
+  .logo{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 24px;
+    font-family:"Headline", sans-serif;;
+
+    img{
+      filter: invert(100%) hue-rotate(0deg);
+      width: 55px;
+      animation: rotate 30s linear infinite;
+
+      &:hover{
+        animation-play-state: paused;
+      }
+    }
+  }
+
+  nav{
+    display: flex;
+    align-items: center;
+
+    & > ul {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+
+      @include mixins.blockGlassMixin(
+        .05,
+        .05,
+        40px,
+      );
+      padding: 15px 30px;
+
+      li > a.active{
+        font-weight: 700;
+      }
+    }
+  }
+
+  .links > .btn_header{
+    @include mixins.btnMixin(
+      15px,
+      15px,
+      16px,
+      .05,
+      .05,
+    )
+  }
+}
