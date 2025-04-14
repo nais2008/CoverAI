@@ -1,10 +1,12 @@
 import os
 import pathlib
 
-import dotenv
 from django.utils.translation import gettext_lazy as _
+import dotenv
 
 dotenv.load_dotenv()
+
+__all__ = ()
 
 
 def get_true_or_false_env(par: str) -> bool:
@@ -31,15 +33,17 @@ MAIL = os.environ.get("DJANGO_MAIL", "your_mail@mail.com")
 
 
 INSTALLED_APPS = [
+    "apps.chat.apps.ChatConfig",
     "apps.feedback.apps.FeedbackConfig",
-    "apps.homepage.apps.HomepageConfig",
-    "apps.user.apps.UserConfig",
+    "apps.news.apps.NewsConfig",
+    "apps.users.apps.UsersConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.postgres",
 ]
 
 MIDDLEWARE = [
@@ -80,35 +84,57 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "backend.wsgi.application"
 
+
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.environ.get("POSTGRES_DB", "postgres"),
+        "USER": os.environ.get("POSTGRES_USER", default="postgres"),
+        "PASSWORD": os.environ.get("POSTGRES_PASSWORD", default=None),
+        "HOST": os.environ.get("POSTGRES_HOST", default="postgres"),
+        "PORT": os.environ.get(
+            "POSTGRES_PORT",
+            "5432",
+        ),
+    },
 }
+
+AUTH_USER_MODEL = "users.User"
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME": (
+            "django.contrib.auth"
+            ".password_validation.UserAttributeSimilarityValidator"
+        ),
     },
     {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation.MinimumLengthValidator"
+        ),
     },
     {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+        "NAME": (
+            "django.contrib.auth"
+            ".password_validation.CommonPasswordValidator"
+        ),
     },
     {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+        "NAME": (
+            "django.contrib.auth"
+            ".password_validation.NumericPasswordValidator"
+        ),
     },
 ]
 
-LOGIN_URL = "/users/login/"
+
+LOGIN_URL = "/user/login/"
 
 LOGIN_REDIRECT_URL = "/"
 
-LOGOUT_REDIRECT_URL = "/users/login/"
+LOGOUT_REDIRECT_URL = "/user/login/"
 
-PASSWORD_RESET_REDIRECT_URL = "/users/login/"
+PASSWORD_RESET_REDIRECT_URL = "/user/login/"
 
 PASSWORD_CHANGE_REDIRECT_URL = "/"
 
@@ -143,12 +169,11 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.yandex.ru"
 EMAIL_PORT = 465
-EMAIL_HOST_USER = os.environ.get("MEMOTIME_EMAIL", default="Your email")
+EMAIL_HOST_USER = os.environ.get("DJANGO_EMAIL", default="Your email")
 EMAIL_HOST_PASSWORD = os.environ.get(
-    "MEMOTIME_EMAIL_PASSWORD",
+    "DJANGO_EMAIL_PASSWORD",
     default="Your app password",
 )
 EMAIL_USE_SSL = True
 EMAIL_USE_TLS = False
-DEFAULT_FROM_EMAIL = f"MemoTime <{EMAIL_HOST_USER}>"
-
+DEFAULT_FROM_EMAIL = f"DJANGO <{EMAIL_HOST_USER}>"
