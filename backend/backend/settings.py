@@ -25,8 +25,6 @@ ALLOWED_HOSTS = os.environ.get(
     "127.0.0.1,localhost",
 ).split(",")
 
-ALLOW_REVERSE = get_true_or_false_env("DJANGO_ALLOW_REVERSE")
-
 DEFAULT_USER_IS_ACTIVE = get_true_or_false_env("DJANGO_DEFAULT_USER_IS_ACTIVE")
 
 MAIL = os.environ.get("DJANGO_MAIL", "your_mail@mail.com")
@@ -61,8 +59,6 @@ if DEBUG:
     MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]
     DEFAULT_USER_IS_ACTIVE = True
 
-if ALLOW_REVERSE:
-    MIDDLEWARE += ["lyceum.middleware.MiddlewareReverseRussianWorlds"]
 
 ROOT_URLCONF = "backend.urls"
 
@@ -139,7 +135,7 @@ PASSWORD_RESET_REDIRECT_URL = "/user/login/"
 PASSWORD_CHANGE_REDIRECT_URL = "/"
 
 AUTHENTICATION_BACKENDS = [
-    "users.backends.EmailBackend",
+    "apps.users.backends.EmailBackend",
 ]
 
 LANGUAGE_CODE = "en-us"
@@ -172,8 +168,8 @@ EMAIL_PORT = 465
 EMAIL_HOST_USER = os.environ.get("DJANGO_EMAIL", default="Your email")
 EMAIL_HOST_PASSWORD = os.environ.get(
     "DJANGO_EMAIL_PASSWORD",
-    default="Your app password",
+    "Your app password",
 )
 EMAIL_USE_SSL = True
 EMAIL_USE_TLS = False
-DEFAULT_FROM_EMAIL = f"DJANGO <{EMAIL_HOST_USER}>"
+DEFAULT_FROM_EMAIL = f"COVERAI <{EMAIL_HOST_USER}>"

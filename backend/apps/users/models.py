@@ -22,6 +22,15 @@ class User(
         blank=False,
         help_text=_("Unique email address"),
     )
+    attempts_count = django.db.models.PositiveIntegerField(
+        verbose_name=_("attempts count"),
+        default=0,
+    )
+    block_date = django.db.models.DateTimeField(
+        verbose_name=_("block date"),
+        blank=True,
+        null=True,
+    )
 
     objects = apps.users.managers.UserManager()
 
@@ -30,7 +39,7 @@ class User(
         verbose_name_plural = _("users")
 
     def __str__(self):
-        if len(self.username >= 15):
+        if len(self.username) >= 15:
             return self.username[:15] + "..."
 
         return self.username

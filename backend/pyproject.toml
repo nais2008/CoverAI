@@ -5,12 +5,14 @@ description = "backend this project"
 readme = "../README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "celery>=5.5.2",
     "django==4.2.10",
     "django-cleanup==9.0.0",
     "django-tinymce==4.1.0",
     "pillow==11.0.0",
     "psycopg2-binary>=2.9.10",
     "python-dotenv==1.0.1",
+    "redis>=5.2.1",
     "sorl-thumbnail==12.11.0",
     "transliterate==1.10.2",
 ]
