@@ -1,0 +1,78 @@
+[project]
+name = "ai"
+version = "0.0.1"
+description = "Add your description here"
+readme = "../README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "accelerate>=1.6.0",
+    "albumentations>=2.0.5",
+    "bezier>=2024.6.20",
+    "datasets>=3.5.0",
+    "diffusers>=0.33.1",
+    "einops>=0.8.1",
+    "fastapi[all]>=0.115.12",
+    "fsspec>=2024.12.0",
+    "huggingface-hub>=0.30.2",
+    "hydra-core>=1.3.2",
+    "matplotlib>=3.10.1",
+    "omegaconf>=2.3.0",
+    "pillow>=11.2.1",
+    "python-dotenv>=1.1.0",
+    "pytorch-lightning==1.7.5",
+    "s3fs>=2024.12.0",
+    "scikit-image>=0.25.2",
+    "scipy>=1.15.2",
+    "setuptools==59.5.0",
+    "timm>=1.0.15",
+    "tqdm>=4.67.1",
+    "transformers>=4.51.3",
+    "uvicorn[standart]>=0.34.2",
+    "wandb>=0.19.9",
+    "webdataset>=0.2.111",
+]
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+]
+test = [
+    "flake8==7.1.1",
+    "flake8-absolute-import==1.0.0.2",
+    "flake8-broken-line==1.0.0",
+    "flake8-bugbear==24.12.12",
+    "flake8-builtins==2.5.0",
+    "flake8-clean-block==0.1.2",
+    "flake8-commas==4.0.0",
+    "flake8-comments==0.1.2",
+    "flake8-comprehensions==3.16.0",
+    "flake8-continuation==1.0.5",
+    "flake8-dunder-all==0.4.1",
+    "flake8-eradicate==1.5.0",
+    "flake8-expression-complexity==0.0.11",
+    "flake8-fixme==1.1.1",
+    "flake8-forbidden-func==0.1.0",
+    "flake8-implicit-str-concat==0.5.0",
+    "flake8-import-guard==1.0.0",
+    "flake8-import-order==0.18.2",
+    "flake8-mutable==1.2.0",
+    "flake8-plugin-utils==1.3.3",
+    "flake8-print==5.0.0",
+    "flake8-return==1.2.0",
+    "flake8-type-ignore==0.1.0.post2",
+    "flake8-use-pathlib==0.3.0",
+]
+
+[tool.black]
+line-length = 79
+target-version = ['py310']
+exclude = '''
+/(
+    \.git
+  | .tox
+  | .venv
+  | venv
+  | build
+  | dist
+  )/
+'''
