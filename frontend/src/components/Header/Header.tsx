@@ -1,16 +1,30 @@
-import { NavLink, Link } from "react-router-dom";
+import { FiSidebar } from "react-icons/fi"
+import { NavLink, Link, useLocation } from "react-router-dom"
 
 import "./Header.scss"
 
 import coverLogo from "/logo.svg"
 
-export const Header = () => {
+interface IHeader {
+  onToggleChatSidebar: () => void
+  isOpen: boolean
+}
+
+export const Header: React.FC<IHeader> = ({ onToggleChatSidebar, isOpen}) => {
+  const location = useLocation()
+  const isChatPage: boolean = /^\/chat(\/|$)/.test(location.pathname)
+
   return (
     <header>
-      <Link className="logo" to="/">
-        <img src={coverLogo} alt="" />
-        CoverAI
-      </Link>
+      <div>
+        { (isChatPage && !isOpen) && (
+          <FiSidebar className="btn_chatSidebar" onClick={ onToggleChatSidebar }/>
+        )}
+        <Link className="logo" to="/">
+          <img src={coverLogo} alt="" />
+          CoverAI
+        </Link>
+      </div>
       <nav>
         <ul>
           <li>
@@ -27,6 +41,14 @@ export const Header = () => {
               className={({ isActive }) => isActive ? "active" : ""}
             >
               API
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/news"
+              className={({ isActive }) => isActive ? "active" : ""}
+            >
+              News
             </NavLink>
           </li>
         </ul>

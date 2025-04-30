@@ -12,9 +12,10 @@ import arrow from "../../assets/img/arrow.svg"
 
 interface UploadFormProps {
   onSubmit: (data: FormData) => void;
+  className?: string
 }
 
-export const FilesUploadPanel: React.FC<UploadFormProps> = ({ onSubmit }) => {
+export const FilesUploadPanel: React.FC<UploadFormProps> = ({ onSubmit, className }) => {
   const [video, setVideo] = useState<File | null>(null);
   const [images, setImages] = useState<File[]>([]);
   const [text, setText] = useState<string>("");
@@ -28,7 +29,7 @@ export const FilesUploadPanel: React.FC<UploadFormProps> = ({ onSubmit }) => {
   };
 
   return (
-    <div className="upload-form-container">
+    <div className={`upload-form-container ${ className }`}>
       <div className="upload-form">
         <VideoDropZone onChange={setVideo} />
         <ImageDropZone onChange={setImages} />

@@ -1,0 +1,22 @@
+@use "../../styles/mixins";
+
+.glassBlock404{
+  display: grid;
+  place-content: center;
+  margin: 40px;
+
+  center{
+    @include mixins.blockGlassMixin(
+      .05,
+      .05,
+      40px,
+    );
+
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    gap: 40px;
+    align-items: center;
+    text-align: center;
+  }
+}

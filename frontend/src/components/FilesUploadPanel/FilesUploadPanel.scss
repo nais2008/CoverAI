@@ -5,9 +5,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 105px);
+  min-height: 88vh;
   margin-block: 20px;
-  padding: 10px;
+  padding: 20px;
 
   @include mixins.blockGlassMixin(
     .05,
