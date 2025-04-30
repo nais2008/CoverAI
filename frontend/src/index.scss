@@ -82,19 +82,21 @@ body{
   background-repeat: no-repeat;
 }
 
-#root{
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding: 20px;
-}
-
 main{
   flex: 1 1 auto;
 }
 
 .btn{
   @include mixins.btnMixin(15px, 15px, 16px);
+}
+.btn_chatSidebar{
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
 }
 
 .links{
