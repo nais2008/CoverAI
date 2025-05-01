@@ -1,0 +1,33 @@
+.tabs {
+  display: flex;
+  gap: 10px;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.documentation{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-block: 20px;
+
+  h1{
+    font-size: 32px;
+    margin-bottom: 0;
+  }
+}
+.content{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  h2, h3{
+    font-size: 24px;
+  }
+  .CodeMirror{
+    border-radius: 10px;
+  }
+}
