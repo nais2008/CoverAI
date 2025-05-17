@@ -2,7 +2,7 @@ import django.contrib.auth.backends
 
 import apps.users.models
 
-__all__ = ()
+__all__ = ["EmailBackend"]
 
 
 class EmailBackend(django.contrib.auth.backends.ModelBackend):
@@ -11,7 +11,9 @@ class EmailBackend(django.contrib.auth.backends.ModelBackend):
             return None
 
         try:
-            user = apps.users.models.User.objects.by_email_or_username(username)
+            user = apps.users.models.User.objects.by_email_or_username(
+                username,
+            )
         except apps.users.models.User.DoesNotExist:
             return None
 

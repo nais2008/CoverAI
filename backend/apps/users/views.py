@@ -1,3 +1,14 @@
-from django.shortcuts import render
+import rest_framework.decorators
+import rest_framework.response
 
-# Create your views here.
+__all__ = []
+
+
+@rest_framework.decorators.api_view(["POST"])
+def login(request):
+    return rest_framework.response.Response({})
+
+
+@rest_framework.decorators.api_view(["POST"])
+def signuo(request):
+    return rest_framework.response.Response({})

@@ -3,7 +3,7 @@ import django.db.models
 
 import apps.users.email_normalizer
 
-__all__ = ()
+__all__ = ["UserManager"]
 
 normalizer = apps.users.email_normalizer.EmailNormalizer()
 
