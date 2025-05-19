@@ -104,3 +104,64 @@ main{
   gap: 40px;
   align-items: center;
 }
+
+input,
+textarea,
+select{
+  padding: 10px 15px;
+  font-size: 20px;
+  outline: none;
+  @include mixins.blockGlassMixin(
+      .1,
+      .1,
+      10px,
+  );
+}
+
+form {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .wrapper{
+    padding: 40px;;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    width: 100vw;
+    position: relative;
+
+    &::after{
+      @include mixins.gradientMixin(
+        80%,
+        80%,
+        150px,
+        200% 200%,
+        variables.$gradient,
+      )
+    }
+
+    h2{
+      font-size: 32px;
+      font-weight: 900;
+      text-align: center;
+
+      label{
+        font-weight: 700;
+      }
+    }
+    div{
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      gap: 10px;
+    }
+    .links{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}

@@ -2,16 +2,15 @@ import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom"
 
-import { routes } from "./config/routes";
+import { routes } from "./config/routes"
 
 import MainPage from "./pages/MainPage";
 import APIPage from "./pages/APIPage";
 // import NewsPage from "../pages/NewsPage";
 // import ChatsPage from "../pages/ChatsPage";
 import ChatPage from "./pages/ChatPage";
-// import LoginPage from "../pages/LoginPage";
-// import LogoutPage from "../pages/LogoutPage";
-// import SignupPage from "../pages/SignupPage";
+import LogInPage from "./pages/LogInPage"
+import SignUpPage from "./pages/SignUpPage";
 // import ActivatePage from "../pages/ActivatePage";
 // import PasswordChangePage from "../pages/PasswordChangePage";
 // import PasswordChangeDonePage from "../pages/PasswordChangeDonePage";
@@ -47,6 +46,7 @@ function App() {
         <main>
           <AnimatePresence mode="wait">
             <motion.div
+              className="child"
               key={location.pathname}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -55,8 +55,10 @@ function App() {
               <Routes>
                 <Route path={routes.main.mask} element={<MainPage />} />
                 <Route path={routes.api.mask} element={<APIPage />} />
-                <Route path={routes.chats.mask} element={<ChatPage />} />
+                <Route element={<ChatPage />} path={routes.chats.mask} />
                 <Route path={routes.chat.mask} element={<ChatPage />} />
+                <Route path={routes.user.login.mask} element={< LogInPage/>} />
+                <Route path={routes.user.signup.mask} element={< SignUpPage/>} />
                 <Route path={routes.page404.mask} element={<Page404 />} />
               </Routes>
             </motion.div>

@@ -3,20 +3,24 @@
 .glassBlock404{
   display: grid;
   place-content: center;
-  margin: 40px;
+  margin-top: 40px;
 
-  center{
-    @include mixins.blockGlassMixin(
-      .05,
-      .05,
-      40px,
-    );
-
+  .wrapper{
     display: flex;
-    flex-direction: column;
-    padding: 40px;
-    gap: 40px;
     align-items: center;
+    justify-content: center;
     text-align: center;
+    position: relative;
+    max-width: 99vw;
+
+    span{
+      font-size: 500px;
+      font-weight: 700;
+      z-index: -1;
+    }
+    .btn_okak{
+      position: absolute;
+      bottom: 20%;
+    }
   }
 }

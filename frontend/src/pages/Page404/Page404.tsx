@@ -2,14 +2,17 @@ import { Link } from "react-router-dom"
 
 import "./Page404.scss"
 
+import okak from "../../assets/img/okak.png"
+
 export const Page404 = () => {
   return (
     <section className="glassBlock404">
-      <center>
-        <h1>404</h1>
-        <p>Page not found</p>
-        <Link to="/" className="btn">Go home</Link>
-      </center>
+      <div className="wrapper">
+        <span>4</span>
+        <img src={okak} alt="okak" />
+        <span>4</span>
+        <Link to="/" className="btn btn_okak">Go home</Link>
+      </div>
     </section>
   )
 }

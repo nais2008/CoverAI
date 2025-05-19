@@ -10,5 +10,5 @@ def login(request):
 
 
 @rest_framework.decorators.api_view(["POST"])
-def signuo(request):
+def signup(request):
     return rest_framework.response.Response({})

@@ -19,7 +19,7 @@ export const APIPage = () => {
 
   return (
     <div className="documentation">
-      <h1>API Documentation</h1>
+      <h1>API Documentation (ПЕРЕДЕЛАТЬ)</h1>
       <Tabs onTabClick={handleTabClick} />
       <div className="content">
         <h2>API Endpoint</h2>

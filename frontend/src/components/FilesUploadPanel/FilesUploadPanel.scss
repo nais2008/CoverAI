@@ -82,7 +82,7 @@
   height: 90px;
   @include mixins.blockGlassMixin(
     .05,
-    .05,
+    .2,
     40px
   );
   padding: 20px;
