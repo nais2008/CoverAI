@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion"
 import React from "react"
 import { FiSidebar } from "react-icons/fi"
+import { IoMdSearch } from "react-icons/io"
+import { CiMenuKebab } from "react-icons/ci"
 
 import "./ChatSidebar.scss"
 
@@ -26,6 +28,35 @@ export const ChatSidebar: React.FC<IChatSidebar> = ({ isOpen, onClose }) => {
               onClick={ onClose }
               className="btn_chatSidebar"
             />
+            <IoMdSearch
+              size={40}
+            />
+            <button className="btn">New chat</button>
+          </div>
+          <div className="main__sidebar">
+            <h2>Chats</h2>
+            <div className="wrapper">
+              <div className="chat">
+                Chat Name
+                <CiMenuKebab size={24}/>
+              </div>
+              <div className="chat">
+                Chat Name
+                <CiMenuKebab size={24}/>
+              </div>
+              <div className="chat">
+                Chat Name
+                <CiMenuKebab size={24}/>
+              </div>
+              <div className="chat">
+                Chat Name
+                <CiMenuKebab size={24}/>
+              </div>
+              <div className="chat">
+                Chat Name
+                <CiMenuKebab size={24}/>
+              </div>
+            </div>
           </div>
         </motion.aside>
       )}

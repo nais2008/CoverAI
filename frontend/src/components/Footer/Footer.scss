@@ -32,14 +32,7 @@ footer{
       200px,
       150px,
       200% 200%,
-      linear-gradient(
-        -45deg,
-        #ee7752,
-        #e73c7e,
-        #23a6d5,
-        #23d5ab,
-        #8772FF,
-      )
+      variables.$gradient
     )
   }
 }

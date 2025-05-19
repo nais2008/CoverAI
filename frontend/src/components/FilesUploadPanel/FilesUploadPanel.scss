@@ -21,14 +21,7 @@
       50%,
       400px,
       200% 200%,
-      conic-gradient(
-        from 45deg,
-        #ee7752,
-        #e73c7e,
-        #23a6d5,
-        #23d5ab,
-        #8772FF,
-      ),
+      variables.$gradient,
     )
   }
 }
@@ -68,6 +61,64 @@
       weight: 700;
       size: 32px;
     }
+    text-align: center;
+  }
+
+  .preview-list {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  // отдельная миниатюра (и для картинок, и для видео)
+  .preview-item {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    overflow: hidden;
+
+    img,
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .remove-btn {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background: rgba(255,0,0,0.8);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    transition: background .2s;
+
+    &:hover{
+      background: rgba(255, 100, 100, 0.8);
+    }
+  }
+
+  .video-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 36px;
+    color: rgba(255,255,255,0.9);
+    pointer-events: none;
   }
 }
 

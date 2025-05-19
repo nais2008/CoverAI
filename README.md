@@ -4,25 +4,48 @@
 
 ## Frontend
 
-### Установка зависимостей
+### Установка зависимостей frontetnd
 
 ```cmd
 cd ./frontend/
-yarn install
+npm install
 ```
 
-### Запуск в dev режиме
+### Запуск frontetnd
 
 ```cmd
 cd ./frontend/
-yarn run dev
+npm start
 ```
 
-## API
+## API & BACKEND
 
-### Запуск
+### Установка зависимостей backend
+
+#### PROD
 
 ```cmd
-cd ./api/
-go run ./cmd/main.go
+cd ./backend/
+pip3 install -r ./requirements/prod.txt
+```
+
+#### DEV
+
+```cmd
+cd ./backend/
+pip3 install -r ./requirements/dev.txt
+```
+
+#### TEST
+
+```cmd
+cd ./backend/
+pip3 install -r ./requirements/test.txt
+```
+
+### Запуск backend
+
+```cmd
+cd ./backend/
+python3 ./manage.py runserver
 ```

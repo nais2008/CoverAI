@@ -11,6 +11,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  gap: 40px;
   padding: 20px;
   position: sticky;
   top: 0;
@@ -21,5 +22,49 @@
 
   &::-webkit-scrollbar {
     width: 0;
+  }
+
+  .header__sidebar{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    svg{
+      cursor: pointer;
+    }
+    .btn{
+      width: 100%;
+    }
+  }
+  .main__sidebar{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    h2{
+      font-size: 20px;
+    }
+    .wrapper{
+      overflow-y: auto;
+      max-height: 500px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .chat{
+        font-size: 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+
+        @include mixins.blockGlassMixin(
+          .1,
+          .1,
+          10px,
+        )
+      }
+    }
   }
 }
