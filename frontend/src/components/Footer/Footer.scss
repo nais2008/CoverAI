@@ -18,6 +18,10 @@ footer{
       flex-direction: column;
       gap: 40px;
       align-items: center;
+
+      &.ul_ss{
+        gap: 20px;
+      }
     }
   }
   p{

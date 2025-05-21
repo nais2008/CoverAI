@@ -1,16 +1,16 @@
-import { AnimatePresence, motion } from "framer-motion";
-import React from "react";
+import { AnimatePresence, motion } from "framer-motion"
+import React, { useState } from "react"
 import { Routes, Route, useLocation } from "react-router-dom"
 
 import { routes } from "./config/routes"
 
-import MainPage from "./pages/MainPage";
-import APIPage from "./pages/APIPage";
+import MainPage from "./pages/MainPage"
+import APIPage from "./pages/APIPage"
 // import NewsPage from "../pages/NewsPage";
-// import ChatsPage from "../pages/ChatsPage";
-import ChatPage from "./pages/ChatPage";
+import ChatByIdPage from "./pages/ChatByIdPage"
+import ChatPage from "./pages/ChatPage"
 import LogInPage from "./pages/LogInPage"
-import SignUpPage from "./pages/SignUpPage";
+import SignUpPage from "./pages/SignUpPage"
 // import ActivatePage from "../pages/ActivatePage";
 // import PasswordChangePage from "../pages/PasswordChangePage";
 // import PasswordChangeDonePage from "../pages/PasswordChangeDonePage";
@@ -18,13 +18,15 @@ import SignUpPage from "./pages/SignUpPage";
 // import PasswordResetDonePage from "../pages/PasswordResetDonePage";
 // import PasswordResetConfirmPage from "../pages/PasswordResetConfirmPage";
 // import PasswordResetCompletePage from "../pages/PasswordResetCompletePage";
-import Page404 from "./pages/Page404";
+import Page404 from "./pages/Page404"
+import ProtectedRoute from "./components/ProtectedRoute";
 
-import ChatSidebar from "./components/ChatSidebar";
+import ChatSidebar from "./components/ChatSidebar"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
 
 import "./App.scss"
+import IntroScreen from "./components/IntroScreen"
 
 
 function App() {
@@ -32,11 +34,20 @@ function App() {
   const [ isChatSidebarOpen, setIsChatSidebarOpen ] = React.useState(true)
 
   const showInChat = () => {
-    return /^\/chat(\/|$)/.test(location.pathname);
+    return /^\/chat(\/|$)/.test(location.pathname)
   }
   const toggleChatSidebar = () => {
     setIsChatSidebarOpen(!isChatSidebarOpen)
   }
+
+  const [showIntro, setShowIntro] = useState(true)
+
+  if (showIntro) {
+    return (
+      <IntroScreen onFinish={() => setShowIntro(false)} />
+    )
+  }
+
 
   return (
     <>
@@ -55,8 +66,22 @@ function App() {
               <Routes>
                 <Route path={routes.main.mask} element={<MainPage />} />
                 <Route path={routes.api.mask} element={<APIPage />} />
-                <Route element={<ChatPage />} path={routes.chats.mask} />
-                <Route path={routes.chat.mask} element={<ChatPage />} />
+                <Route
+                  path={routes.chats.mask}
+                  element={
+                    <ProtectedRoute isAuthenticated={true}>
+                      <ChatPage />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path={routes.chat.mask}
+                  element={
+                    <ProtectedRoute isAuthenticated={true}>
+                      <ChatByIdPage />
+                    </ProtectedRoute>
+                  }
+                />
                 <Route path={routes.user.login.mask} element={< LogInPage/>} />
                 <Route path={routes.user.signup.mask} element={< SignUpPage/>} />
                 <Route path={routes.page404.mask} element={<Page404 />} />
@@ -71,3 +96,4 @@ function App() {
 }
 
 export default App
+

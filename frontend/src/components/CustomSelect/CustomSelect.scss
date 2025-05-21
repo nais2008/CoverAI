@@ -1,0 +1,51 @@
+@use "../../styles/mixins";
+
+.custom-select {
+  position: relative;
+  width: 100%;
+  font-size: 20px;
+  cursor: pointer;
+  @include mixins.blockGlassMixin(0.1, 0.1, 50px);
+
+  &__selected {
+    padding: 10px 20px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+  }
+
+  &__arrow {
+    margin-left: 10px;
+    font-size: 20px;
+  }
+
+  &__options {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    border-radius: 10px;
+    @include mixins.blockGlassMixin(0.3, 0.3, 10px);
+
+    &--down {
+      top: 100%;
+      margin-top: 4px;
+    }
+
+    &--up {
+      bottom: 100%;
+      margin-bottom: 4px;
+    }
+  }
+
+  &__option {
+    padding: 10px 15px;
+    transition: background .2s;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+}

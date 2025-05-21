@@ -1,0 +1,173 @@
+@use "../../styles/mixins";
+@use "../../styles/variables";
+
+.chat_wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: calc(100vh - 95px);
+  width: 100%;
+
+  .chat{
+    flex: 1 1 auto;
+    overflow-y: auto;
+  }
+  .userQuery{
+    flex: 0;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    padding: 0;
+
+    &::before{
+      display: block;
+      content: "";
+      width: 100%;
+      height: 2px;
+      position: absolute;
+      top: -20px;
+      left: 0;
+      background: linear-gradient(
+        90deg,
+        rgba($color: #fff, $alpha: 0.0),
+        #999,
+        rgba($color: #fff, $alpha: 0.0)
+      );
+    }
+    .file-previews_container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 4px;
+      width: 100%;
+      @include mixins.blockGlassMixin(
+        .1,
+        .1,
+        20px
+      );
+    }
+
+    .file-preview-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 8px;
+      @include mixins.blockGlassMixin(
+        .1,
+        .1,
+        5px
+      );
+      position: relative;
+
+      img {
+        max-width: 80px;
+        max-height: 80px;
+        object-fit: cover;
+        margin-bottom: 5px;
+        border-radius: 3px;
+      }
+
+      .remove-file-btn {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        background: rgba(255,0,0,0.8);
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 16px;
+        line-height: 1;
+        transition: background .2s;
+
+        &:hover{
+          background: rgba(255, 100, 100, 0.8);
+        }
+      }
+    }
+
+    textarea{
+      width: 100%;
+      overflow-y: auto;
+      height: 135px;
+      line-height: 1.5;
+      font-size: 20px;
+      position: relative;
+      border-radius: 20px 20px 0 0;
+      padding-bottom: 80px;
+      border-bottom: none;
+
+      &::placeholder{
+        font-weight: 700;
+      }
+    }
+    .userQuery__footer{
+      bottom: 0;
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      height: 85px;
+      @include mixins.blockGlassMixin(
+        .1,
+        .1,
+        0 0 20px 20px
+      );
+      border-top: none;
+      box-shadow: none;
+      padding: 10px;
+
+      .left{
+        display: flex;
+        gap: 10px;
+
+        .file{
+          input{
+            display: none;
+          }
+          .btn_img{
+            height: 65px;
+            width: 65px;
+            display: grid;
+            place-content: center;
+            cursor: pointer;
+            @include mixins.blockGlassMixin(
+              .1,
+              .1,
+              50%
+            );
+
+            img{
+              width: 40px;
+            }
+          }
+        }
+        select{
+          border-radius: 50px;
+        }
+      }
+      .btn_array{
+        width: 65px;
+        height: 65px;
+        display: grid;
+        place-content: center;
+        rotate: -90deg;
+      }
+    }
+    &::after{
+      @include mixins.gradientMixin(
+        80%,
+        80%,
+        200px,
+        200% 200%,
+        variables.$gradient,
+      );
+    }
+  }
+}

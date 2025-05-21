@@ -55,7 +55,8 @@ export const Header: React.FC<IHeader> = ({ onToggleChatSidebar, isOpen}) => {
       </nav>
       <div className="links">
         <Link className="btn btn_header" to="/chat">Try CoverAI</Link>
-        <Link className="btn btn_header" to="/signup">Sign Up</Link>
+        <Link className="btn btn_header" to="/signup">SignUp</Link>
+        <Link className="btn btn_header" to="/login">LogIn</Link>
       </div>
     </header>
   )

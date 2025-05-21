@@ -1,0 +1,25 @@
+.intro {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+
+    svg {
+    width: 400px;
+    height: auto;
+
+    path {
+      fill-opacity: 0;
+      animation: draw 1s ease-in-out forwards;
+    }
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+    fill-opacity: 1;
+  }
+}

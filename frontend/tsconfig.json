@@ -10,9 +10,10 @@
       "components/*": ["components/*"],
       "config/*": ["config/*"],
       "styles/*": ["styles/*"],
-      "utils/*": ["utils/*"],
+      "types/*": ["types/*"],
       "pages/*": ["pages/*"],
-      "store/*": ["store/*"]
+      "store/*": ["store/*"],
+      "context/*": ["context/*"]
     }
   },
   "browserslist": ["ie 11"]

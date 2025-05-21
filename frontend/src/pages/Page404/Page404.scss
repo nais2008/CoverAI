@@ -6,15 +6,20 @@
   margin-top: 40px;
 
   .wrapper{
+    --index: calc(1vw + 1vh);
     display: flex;
     align-items: center;
+    flex-direction: row;
     justify-content: center;
     text-align: center;
     position: relative;
     max-width: 99vw;
 
+    img{
+      width: calc(var(--index) * 27);
+    }
     span{
-      font-size: 500px;
+      font-size: calc(var(--index) * 15);
       font-weight: 700;
       z-index: -1;
     }

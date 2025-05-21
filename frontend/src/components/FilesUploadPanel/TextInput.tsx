@@ -1,7 +1,7 @@
 // frontend/src/components/UploadForm/TextInput.tsx
 import React from "react"
 
-import { TextInputProps } from "../../models/FilesUploadPanel"
+import { TextInputProps } from "../../types/FilesUploadPanel"
 
 const TextInput: React.FC<TextInputProps> = ({ onTextChange }) => {
   return (

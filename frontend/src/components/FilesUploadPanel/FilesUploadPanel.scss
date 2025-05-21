@@ -5,8 +5,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 88vh;
-  margin-block: 20px;
+  min-height: calc(100vh - 103px);
+  margin-block: 10px;
   padding: 20px;
 
   @include mixins.blockGlassMixin(
@@ -23,6 +23,9 @@
       200% 200%,
       variables.$gradient,
     )
+  }
+  &.isChatPage{
+    min-height: calc(100vh - 120px);
   }
 }
 
@@ -47,7 +50,7 @@
     height: 400px;
   }
   &.img{
-    height: 160px;
+    min-height: 160px;
   }
 
   p, img {
@@ -65,13 +68,13 @@
   }
 
   .preview-list {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
     gap: 16px;
     flex-wrap: wrap;
-    margin-top: 16px;
+    margin-bottom: 30px;
   }
 
-  // отдельная миниатюра (и для картинок, и для видео)
   .preview-item {
     position: relative;
     width: 120px;
@@ -166,6 +169,4 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-
 }

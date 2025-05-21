@@ -11,15 +11,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^2.6.1",
     "codemirror": "5.61.0",
     "framer-motion": "^12.9.2",
+    "mobx": "^6.13.7",
+    "mobx-react-lite": "^4.1.0",
     "react": "^19.0.0",
     "react-codemirror2": "^8.0.1",
     "react-dom": "^19.0.0",
-    "react-dropzone": "^14.3.8",
+    "react-hook-form": "^7.56.4",
     "react-icons": "^5.5.0",
-    "react-redux": "^9.2.0",
     "react-router-dom": "^7.5.0",
     "sass": "^1.86.3",
     "swiper": "^11.2.6"
@@ -50,7 +50,7 @@
     "vite": "^6.2.0"
   },
   "description": "AI project",
-  "main": "index.ts",
+  "main": "main.ts",
   "repository": "github.com/nais2008/CoverAI",
   "author": "nais2008 <t09n09a08@gmail.com>",
   "license": "MIT"

@@ -4,7 +4,7 @@ import VideoDropZone from "./VideoDropZone";
 import ImageDropZone from "./ImageDropZone";
 import TextInput from "./TextInput";
 
-import { FormData } from "../../models/FilesUploadPanel";
+import { FormData } from "../../types/FilesUploadPanel";
 
 import "./FilesUploadPanel.scss";
 

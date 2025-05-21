@@ -27,7 +27,7 @@ export const Slider: React.FC = () => {
       </div>
       <Swiper
         spaceBetween={40}
-        slidesPerView={3}
+        slidesPerView={3.5}
         modules={[Navigation]}
         navigation={{
           prevEl: ".btn_prev",

@@ -1,10 +1,11 @@
 import React, {useRef, useState, useEffect } from "react"
+import { IoIosClose } from "react-icons/io"
 
-import { DropZoneProps } from "../../models/FilesUploadPanel"
+import { DropZoneProps } from "../../types/FilesUploadPanel"
 
 import ImgFile from "../../assets/img/imgFile.svg"
 
-export const ImageDropZone: React.FC<DropZoneProps<File[]>> = ({ onChange }) => {
+const ImageDropZone: React.FC<DropZoneProps<File[]>> = ({ onChange }) => {
   const [images, setImages] = useState<{ file: File; preview: string }[]>([]);
   const [isDragActive, setIsDragActive] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -69,7 +70,7 @@ export const ImageDropZone: React.FC<DropZoneProps<File[]>> = ({ onChange }) => 
           {images.map((img, idx) => (
             <div key={idx} className="preview-item">
               <img src={img.preview} alt={`preview-${idx}`} />
-              <button className="remove-btn" onClick={(e) => { e.stopPropagation(); removeImage(idx); }}>×</button>
+              <button className="remove-btn" onClick={(e) => { e.stopPropagation(); removeImage(idx); }}><IoIosClose /></button>
             </div>
           ))}
         </div>

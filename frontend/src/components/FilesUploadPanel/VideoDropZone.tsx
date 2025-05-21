@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react"
+import { IoIosClose } from "react-icons/io"
 
-import { DropZoneProps } from "../../models/FilesUploadPanel"
+import { DropZoneProps } from "../../types/FilesUploadPanel"
 
 import VideFile from "../../assets/img/videFile.svg"
 
@@ -70,7 +71,7 @@ export const VideoDropZone: React.FC<DropZoneProps<File | null>> = ({ onChange }
           <div className="preview-item">
             <video src={video.preview} muted preload="metadata"></video>
             <div className="video-overlay">▶</div>
-            <button className="remove-btn" onClick={(e) => { e.stopPropagation(); removeVideo(); }}>×</button>
+            <button className="remove-btn" onClick={(e) => { e.stopPropagation(); removeVideo(); }}><IoIosClose /></button>
           </div>
         </div>
       )}

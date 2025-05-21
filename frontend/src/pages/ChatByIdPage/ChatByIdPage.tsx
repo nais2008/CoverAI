@@ -1,11 +1,9 @@
 import React from "react"
 
 import FilesUploadPanel from "../../components/FilesUploadPanel"
-
 import Chat from "../../components/Chat"
 
-
-export const ChatPage = () => {
+function ChatByIdPage() {
   const [ isFirstMessage, setIsFirstMessage ] = React.useState(true)
 
   const toggleFirstMessage = () => {
@@ -23,4 +21,5 @@ export const ChatPage = () => {
   )
 }
 
-export default ChatPage
+export default ChatByIdPage
+

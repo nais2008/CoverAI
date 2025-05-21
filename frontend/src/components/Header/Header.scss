@@ -4,14 +4,22 @@
 // временный костыль
 @import url("../../styles/_fonts.scss");
 
-header{
-  display: flex;
+header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "logo nav links";
   justify-content: space-between;
+  justify-items: stretch;
+  align-items: center;
 
   div:first-child{
     display: flex;
     align-items: center;
     gap: 20px;
+    grid-area: logo;
 
     .logo{
       display: flex;
@@ -35,6 +43,8 @@ header{
   nav{
     display: flex;
     align-items: center;
+    justify-self: center;
+    grid-area: nav;
 
     & > ul {
       display: flex;
@@ -53,14 +63,21 @@ header{
       }
     }
   }
+  .links{
+    grid-area: links;
+    display: flex;
+    gap: 40px;
+    justify-self: flex-end;
+    align-items: center;
 
-  .links > .btn_header{
-    @include mixins.btnMixin(
-      15px,
-      15px,
-      16px,
-      .05,
-      .05,
-    )
+    & > .btn_header{
+      @include mixins.btnMixin(
+        15px,
+        15px,
+        16px,
+        .05,
+        .05,
+      )
+    }
   }
 }

@@ -2,6 +2,11 @@ import django.conf
 import django.conf.urls.static
 import django.contrib
 import django.urls
+import rest_framework_swagger.views
+
+schema_view = rest_framework_swagger.views.get_swagger_view(
+    title="*",
+)
 
 urlpatterns = [
     django.urls.path(
@@ -15,6 +20,10 @@ urlpatterns = [
     django.urls.path(
         "api/",
         django.urls.include("apps.api.urls"),
+    ),
+    django.urls.path(
+        "docs/",
+        schema_view,
     ),
 ]
 

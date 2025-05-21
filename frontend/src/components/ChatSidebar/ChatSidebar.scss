@@ -58,12 +58,17 @@
         justify-content: space-between;
         align-items: center;
         padding: 10px 15px;
+        transition: background .2s;
 
         @include mixins.blockGlassMixin(
           .1,
           .1,
           10px,
-        )
+        );
+
+        &.active{
+          background: rgba($color: #fff, $alpha: .3);
+        }
       }
     }
   }
