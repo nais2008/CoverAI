@@ -5,6 +5,7 @@ django-rest-swagger==2.2.0
 djangorestframework==3.16.0
 djangorestframework_simplejwt==5.5.0
 pillow==11.0.0
+psycopg2==2.9.10
 python-dotenv==1.0.1
 sorl-thumbnail==12.11.0
 transliterate==1.10.2

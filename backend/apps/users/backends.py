@@ -20,4 +20,7 @@ class EmailBackend(django.contrib.auth.backends.ModelBackend):
         if not user.check_password(password):
             return None
 
+        if not self.user_can_authenticate(user):
+            return None
+
         return user

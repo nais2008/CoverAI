@@ -1,14 +1,41 @@
-import rest_framework.decorators
+import rest_framework.authtoken.models
 import rest_framework.response
+import rest_framework.status
+import rest_framework.views
 
-__all__ = []
+import apps.users.serializers
+
+__all__ = ["RegisterView"]
 
 
-@rest_framework.decorators.api_view(["POST"])
-def login(request):
-    return rest_framework.response.Response({})
+class RegisterView(rest_framework.views.APIView):
+    permission_classes = []
 
+    def post(self, request, *args, **kwargs):
+        serializer = apps.users.serializers.RegisterSerializer(
+            data=request.data,
+        )
+        serializer.is_valid(raise_exception=True)
 
-@rest_framework.decorators.api_view(["POST"])
-def signup(request):
-    return rest_framework.response.Response({})
+        user = serializer.save()
+
+        token, _ = (
+            rest_framework
+            .authtoken
+            .models
+            .Token
+            .objects
+            .get_or_create(
+                user=user,
+            )
+        )
+
+        return rest_framework.response.Response(
+            {
+                "id": user.pk,
+                "username": user.username,
+                "email": user.email,
+                "token": token.key,
+            },
+            status=rest_framework.status.HTTP_201_CREATED,
+        )

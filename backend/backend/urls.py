@@ -14,12 +14,8 @@ urlpatterns = [
         django.contrib.admin.site.urls,
     ),
     django.urls.path(
-        "api-auth/",
-        django.urls.include("rest_framework.urls"),
-    ),
-    django.urls.path(
-        "api/",
-        django.urls.include("apps.api.urls"),
+        "api/v1/users/",
+        django.urls.include("apps.users.urls"),
     ),
     django.urls.path(
         "docs/",
