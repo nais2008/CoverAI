@@ -79,5 +79,46 @@ header {
         .05,
       )
     }
+    .user-menu-wrapper {
+      position: relative;
+      display: inline-block;
+
+      .btn_user{
+        padding: 0;
+        height: 50px;
+        width: 50px;
+      }
+    }
+
+    .user-dropdown {
+      position: absolute;
+      top: 110%;
+      right: 0;
+      @include mixins.blockGlassMixin(
+        .1,
+        .1,
+        40px,
+      );
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      z-index: 100;
+      overflow: hidden;
+
+      button{
+        width: 100%;
+        flex: 1;
+        padding: 7px 15px;
+        background: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        transition: background .2s;
+
+        &:hover{
+          background: rgba($color: #fff, $alpha: .1);
+        }
+      }
+    }
   }
 }

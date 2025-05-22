@@ -6,7 +6,7 @@ import { routes } from "./config/routes"
 
 import MainPage from "./pages/MainPage"
 import APIPage from "./pages/APIPage"
-// import NewsPage from "../pages/NewsPage";
+import NewsPage from "./pages/NewsPage"
 import ChatByIdPage from "./pages/ChatByIdPage"
 import ChatPage from "./pages/ChatPage"
 import LogInPage from "./pages/LogInPage"
@@ -84,6 +84,7 @@ function App() {
                 />
                 <Route path={routes.user.login.mask} element={< LogInPage/>} />
                 <Route path={routes.user.signup.mask} element={< SignUpPage/>} />
+                <Route path={routes.news.mask} element={<NewsPage />} />
                 <Route path={routes.page404.mask} element={<Page404 />} />
               </Routes>
             </motion.div>

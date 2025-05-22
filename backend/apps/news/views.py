@@ -23,9 +23,8 @@ class NewsListView(rest_framework.views.APIView):
         queryset = apps.news.models.News.objects.by_create_at()
         serializer = apps.news.serializers.NewsSerializer(
             queryset,
-            data=request.data,
+            many=True,
         )
-        serializer.is_valid(raise_exception=True)
 
         return rest_framework.response.Response(
             serializer.data,
@@ -61,10 +60,7 @@ class NewsDetailView(rest_framework.views.APIView):
         news = self.get_object(pk)
         serializer = apps.news.serializers.NewsSerializer(
             news,
-            data=request.data,
         )
-
-        serializer.is_valid(raise_exception=True)
 
         return rest_framework.response.Response(
             serializer.data,
@@ -90,7 +86,7 @@ class NewsDetailView(rest_framework.views.APIView):
         serializer = apps.news.serializers.NewsSerializer(
             news,
             data=request.data,
-             partial=True,
+            partial=True,
         )
 
         serializer.is_valid(raise_exception=True)
@@ -101,11 +97,11 @@ class NewsDetailView(rest_framework.views.APIView):
             serializer.data,
         )
 
-    def put(self, request, pk):
+    def delete(self, request, pk):
         news = self.get_object(pk)
         news.delete()
 
-        return rest_framework.responseResponse(
+        return rest_framework.response.Response(
             resstatus=rest_framework.status.HTTP_204_NO_CONTENT,
         )
 

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.postgres",
     "tinymce",
+    "sorl.thumbnail",
     "corsheaders",
     "rest_framework",
     "rest_framework_swagger",

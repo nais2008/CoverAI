@@ -1,5 +1,6 @@
 import django.db.models
 from django.utils.translation import gettext_lazy as _
+import django.utils.safestring
 import tinymce.models
 
 import apps.core.models
@@ -31,6 +32,18 @@ class News(apps.core.models.BaseCreateModel):
             return self.title[:15] + "..."
 
         return self.title
+
+    def image_tmb(self):
+        if self.image:
+            return django.utils.safestring.mark_safe(
+                f"<img src='{self.image.get_image_50x50.url}' />",
+            )
+
+        return _("No image or image not found")
+
+    image_tmb.short_description = "превью"
+    image_tmb.allow_tags = True
+
 
 
 class Image(apps.core.models.BaseImageModel):

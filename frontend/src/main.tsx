@@ -1,16 +1,20 @@
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
+import { createRoot } from "react-dom/client"
+import { BrowserRouter } from "react-router-dom"
 
-import App from './App.tsx'
+import { AuthProvider } from "./context/AuthContext/AuthContext.tsx"
+
+import App from "./App.tsx"
 
 import "./config/configureMobX.ts"
 
-import './index.scss'
+import "./index.scss"
 
 
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
-    <App />
+    <AuthProvider>
+      <App />
+    </AuthProvider>
   </BrowserRouter>
 )

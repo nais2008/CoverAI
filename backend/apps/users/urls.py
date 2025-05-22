@@ -13,7 +13,7 @@ urlpatterns = [
     ),
     django.urls.path(
         "token/",
-        rest_framework_simplejwt.views.TokenObtainPairView.as_view(),
+        apps.users.views.MyTokenObtainPairView.as_view(),
         name="token_obtain_pair",
     ),
     django.urls.path(

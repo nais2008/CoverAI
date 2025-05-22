@@ -2,10 +2,11 @@ import rest_framework.authtoken.models
 import rest_framework.response
 import rest_framework.status
 import rest_framework.views
+import rest_framework_simplejwt.views
 
 import apps.users.serializers
 
-__all__ = ["RegisterView"]
+__all__ = ["RegisterView", "MyTokenObtainPairView"]
 
 
 class RegisterView(rest_framework.views.APIView):
@@ -39,3 +40,9 @@ class RegisterView(rest_framework.views.APIView):
             },
             status=rest_framework.status.HTTP_201_CREATED,
         )
+
+
+class MyTokenObtainPairView(
+    rest_framework_simplejwt.views.TokenObtainPairView,
+):
+    serializer_class = apps.users.serializers.MyTokenObtainPairSerializer

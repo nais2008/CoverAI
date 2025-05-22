@@ -7,7 +7,7 @@ __all__ = ["NewsSerializer"]
 
 class ImageSerializer(rest_framework.serializers.ModelSerializer):
     class Meta:
-        modal = apps.news.models.Image
+        model = apps.news.models.Image
         fields = [
             apps.news.models.Image.image.field.name,
         ]
