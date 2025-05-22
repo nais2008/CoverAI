@@ -2,7 +2,7 @@ import django.contrib.auth
 import rest_framework
 import rest_framework.serializers
 
-__all__ = []
+__all__ = ["RegisterSerializer"]
 
 User = django.contrib.auth.get_user_model()
 

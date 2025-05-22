@@ -1,24 +1,26 @@
 import django.db.models
 from django.utils.translation import gettext_lazy as _
+import tinymce.models
 
 import apps.core.models
+import apps.news.managers
 
 __all__ = ["News"]
 
 
-class News(
-    apps.core.models.BaseImageModel,
-):
+class News(apps.core.models.BaseCreateModel):
     title = django.db.models.TextField(
         _("Title news"),
         help_text=_("Write title news"),
         max_length=250,
     )
-    description = django.db.models.TextField(
+    description = tinymce.models.HTMLField(
         _("Description news"),
         help_text=_("Write description news"),
         max_length=500,
     )
+
+    objects = apps.news.managers.NewsManager()
 
     class Meta:
         verbose_name = _("news")
@@ -29,3 +31,20 @@ class News(
             return self.title[:15] + "..."
 
         return self.title
+
+
+class Image(apps.core.models.BaseImageModel):
+    news = django.db.models.OneToOneField(
+        News,
+        on_delete=django.db.models.CASCADE,
+        related_name="image",
+        null=True,
+        default=None,
+    )
+
+    class Meta:
+        verbose_name = _("main image news")
+        verbose_name_plural = _("main images news")
+
+    def __str__(self):
+        return self.image.url

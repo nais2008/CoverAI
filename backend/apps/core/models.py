@@ -49,6 +49,13 @@ class BaseCreateModel(django.db.models.Model):
         _("created at"),
         auto_now_add=True,
         help_text=_("Date and time created"),
+        null=True,
+    )
+    updated_at = django.db.models.DateTimeField(
+        _("update at"),
+        auto_now=True,
+        help_text=_("Date last update"),
+        null=True,
     )
 
     class Meta:

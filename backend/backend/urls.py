@@ -2,10 +2,11 @@ import django.conf
 import django.conf.urls.static
 import django.contrib
 import django.urls
+import rest_framework.schemas
 import rest_framework_swagger.views
 
 schema_view = rest_framework_swagger.views.get_swagger_view(
-    title="*",
+    title="CoverAI Docs",
 )
 
 urlpatterns = [
@@ -18,8 +19,19 @@ urlpatterns = [
         django.urls.include("apps.users.urls"),
     ),
     django.urls.path(
+        "api/v1/news/",
+        django.urls.include("apps.news.urls"),
+    ),
+    django.urls.path(
         "docs/",
         schema_view,
+    ),
+    django.urls.path(
+        "docs/v1/",
+        rest_framework.schemas.get_schema_view(
+            title="CoverAI API Docs",
+        ),
+        name="api-docs",
     ),
 ]
 
