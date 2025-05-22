@@ -179,7 +179,7 @@ function SignUpPage() {
             className="btn"
             disabled={ !isAgree }
           >
-            Login
+            SignUp
           </button>
         </div>
       </div>

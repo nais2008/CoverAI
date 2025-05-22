@@ -9,8 +9,8 @@ export const AuthProvider = ({ children }) => {
   const loginUser = async (e) => {
     e.preventDefault()
 
-    let response = fetch(
-      "http://localhost:8000/api/token",
+    const response = fetch(
+      "http://localhost:8000/api/v1/users/token",
       {
         method: "POST",
         headers: {

@@ -5,25 +5,17 @@ import rest_framework.response
 import rest_framework.views
 
 import apps.news.models
-import apps.news.models
+import apps.news.permissions
 import apps.news.serializers
 
 __all__ = ["IsStaffUser", "NewsListView", "NewsDetailView"]
 
 
-class IsStaffUser(rest_framework.permissions.BasePermission):
-    def has_permission(self, request, view):
-        return bool(
-            request.user
-            and request.user.is_authenticated
-            and request.user.is_staff
-        )
-
 
 class NewsListView(rest_framework.views.APIView):
     def get_permissions(self):
         if self.request.method == "POST":
-            return [IsStaffUser()]
+            return [apps.news.permissions.IsStaffUser()]
 
         return [rest_framework.permissions.AllowAny()]
 
@@ -55,7 +47,7 @@ class NewsListView(rest_framework.views.APIView):
 class NewsDetailView(rest_framework.views.APIView):
     def get_permissions(self):
         if self.request.method in ["PUT", "PATCH", "DELETE"]:
-            return [IsStaffUser()]
+            return [apps.news.permissions.IsStaffUser()]
 
         return [rest_framework.permissions.AllowAny()]
 

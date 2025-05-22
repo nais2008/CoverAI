@@ -5,7 +5,7 @@ import tinymce.models
 import apps.core.models
 import apps.news.managers
 
-__all__ = ["News"]
+__all__ = ["News", "Image"]
 
 
 class News(apps.core.models.BaseCreateModel):
