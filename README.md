@@ -43,6 +43,13 @@ cd ./backend/
 pip3 install -r ./requirements/test.txt
 ```
 
+### Применение миграций
+
+```cmd
+cd ./backend/
+python3 manage.py migrate
+```
+
 ### Запуск backend
 
 ```cmd
