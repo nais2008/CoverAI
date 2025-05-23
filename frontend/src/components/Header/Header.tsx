@@ -1,10 +1,11 @@
 import { useContext, useEffect, useRef, useState } from "react"
 import { FiSidebar } from "react-icons/fi"
-import { NavLink, Link, useLocation, useNavigate } from "react-router-dom"
+import { NavLink, Link, useLocation } from "react-router-dom"
 
 import AuthContext from "../../context/AuthContext"
 
 import IHeader from "../../types/IHeader"
+import EditProfileModal from "../EditProfileModal"
 
 import "./Header.scss"
 
@@ -15,10 +16,11 @@ export const Header: React.FC<IHeader> = ({ onToggleChatSidebar, isOpen }) => {
   const location = useLocation()
   const isChatPage: boolean = /^\/chat(\/|$)/.test(location.pathname)
 
+  const [isEditModalOpen, setEditModalOpen] = useState(false)
+
   const { user, logoutUser } = useContext(AuthContext)!
   const [menuOpen, setMenuOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
-  const navigate = useNavigate()
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -38,10 +40,6 @@ export const Header: React.FC<IHeader> = ({ onToggleChatSidebar, isOpen }) => {
     setMenuOpen(false)
   }
 
-  const openSettings = () => {
-    navigate("/settings")
-    setMenuOpen(false)
-  }
 
   return (
     <header>
@@ -92,7 +90,7 @@ export const Header: React.FC<IHeader> = ({ onToggleChatSidebar, isOpen }) => {
             </button>
             {menuOpen && (
               <div className="user-dropdown">
-                <button onClick={openSettings}>Settings</button>
+                <button onClick={() => setEditModalOpen(true)}>Settings</button>
                 <button onClick={handleLogout}>LogOut</button>
               </div>
             )}
@@ -108,6 +106,7 @@ export const Header: React.FC<IHeader> = ({ onToggleChatSidebar, isOpen }) => {
           </>
         )}
       </div>
+      {isEditModalOpen && <EditProfileModal onClose={() => setEditModalOpen(false)} />}
     </header>
   )
 }

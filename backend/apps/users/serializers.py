@@ -64,14 +64,65 @@ class MyTokenObtainPairSerializer(
         token["is_staff"] = user.is_staff
         token["first_name"] = user.first_name or ""
         token["last_name"] = user.last_name or ""
-        if (
-            user.image
-            and django.core.files.storage.default_storage.exists(
-                user.image.name,
-            )
+        if user.image and django.core.files.storage.default_storage.exists(
+            user.image.name,
         ):
             token["image"] = user.image.url
         else:
             token["image"] = ""
 
         return token
+
+
+class UserUpdateSerializer(rest_framework.serializers.ModelSerializer):
+    first_name = rest_framework.serializers.CharField(
+        required=False, allow_blank=True
+    )
+    last_name = rest_framework.serializers.CharField(
+        required=False, allow_blank=True
+    )
+    email = rest_framework.serializers.EmailField(required=False)
+    password = rest_framework.serializers.CharField(
+        required=False, write_only=True, style={"input_type": "password"}
+    )
+    password_confirm = rest_framework.serializers.CharField(
+        required=False, write_only=True, style={"input_type": "password"}
+    )
+
+    class Meta:
+        model = User
+        fields = [
+            "username",
+            "first_name",
+            "last_name",
+            "email",
+            "password",
+            "password_confirm",
+        ]
+
+    def validate(self, attrs):
+        password = attrs.get("password", None)
+        password_confirm = attrs.get("password_confirm", None)
+
+        if password and password != password_confirm:
+            raise rest_framework.serializers.ValidationError(
+                "Passwords do not match."
+            )
+
+        return attrs
+
+    def update(self, instance, validated_data):
+        instance.first_name = validated_data.get(
+            "first_name", instance.first_name
+        )
+        instance.last_name = validated_data.get(
+            "last_name", instance.last_name
+        )
+        instance.email = validated_data.get("email", instance.email)
+
+        password = validated_data.get("password", None)
+        if password:
+            instance.set_password(password)
+
+        instance.save()
+        return instance

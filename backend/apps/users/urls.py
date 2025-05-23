@@ -21,4 +21,9 @@ urlpatterns = [
         rest_framework_simplejwt.views.TokenRefreshView.as_view(),
         name="token_refresh",
     ),
+    django.urls.path(
+        "me/",
+        apps.users.views.UserProfileUpdateAPIView.as_view(),
+        name="update_user_profile",
+    ),
 ]

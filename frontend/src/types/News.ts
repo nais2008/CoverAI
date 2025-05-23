@@ -20,3 +20,12 @@ export interface ModalProps {
   onClose: () => void
   onNewsCreated: (item: NewsItem) => void
 }
+
+export interface InfoModalProps {
+  isOpen: boolean
+  onClose: () => void
+  title: string
+  description: string
+  createdAt: string
+  image?: string
+}

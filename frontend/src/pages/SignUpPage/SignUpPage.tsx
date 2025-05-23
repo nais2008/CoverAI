@@ -58,7 +58,8 @@ function SignUpPage() {
         const errorData = await response.json()
         setServerErrors(errorData)
       }
-    } catch (_) {
+    } catch (err) {
+      console.log(err)
       setServerErrors({ non_field_errors: ["error 500."] })
     }
   }

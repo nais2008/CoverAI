@@ -45,7 +45,6 @@ class News(apps.core.models.BaseCreateModel):
     image_tmb.allow_tags = True
 
 
-
 class Image(apps.core.models.BaseImageModel):
     news = django.db.models.OneToOneField(
         News,

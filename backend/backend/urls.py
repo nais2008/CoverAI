@@ -23,7 +23,11 @@ urlpatterns = [
         django.urls.include("apps.news.urls"),
     ),
     django.urls.path(
-        r"^$",
+        "api/v1/feedbacks/",
+        django.urls.include("apps.feedback.urls"),
+    ),
+    django.urls.path(
+        "",
         schema_view,
     ),
 ]

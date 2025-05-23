@@ -9,11 +9,9 @@ class NewsManager(django.db.models.Manager):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-
     def by_create_at(self):
         return (
-            self
-            .select_related("image")
+            self.select_related("image")
             .only(
                 "pk",
                 apps.news.models.News.title.field.name,

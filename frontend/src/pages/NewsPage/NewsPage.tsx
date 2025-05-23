@@ -41,7 +41,7 @@ const NewsPage = () => {
             title={item.title}
             description={item.description}
             createdAt={item.created_at}
-            image={item.image?.image}
+            image={item.image ? item.image.image : undefined}  
             onDelete={() => {
               fetch(`http://localhost:8000/api/v1/news/${item.pk}/`, {
                 method: "DELETE",

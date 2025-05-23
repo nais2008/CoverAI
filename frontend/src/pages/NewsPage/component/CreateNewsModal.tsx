@@ -6,7 +6,9 @@ import { FaTimes } from "react-icons/fa"
 import AuthContext from "../../../context/AuthContext"
 
 import { ModalProps, NewsItem } from "../../../types/News"
+
 import ErrMessage from "../../../components/ErrMessage"
+
 
 const CreateNewsModal: React.FC<ModalProps> = ({
   isOpen,
@@ -19,7 +21,7 @@ const CreateNewsModal: React.FC<ModalProps> = ({
     mode: "onChange",
   })
 
-  const onSubmin: SubmitHandler<NewsItem> = async (data) => {
+  const onSubmit: SubmitHandler<NewsItem> = async (data) => {
     const response = await fetch(
       "http://localhost:8000/api/v1/news/",
       {
@@ -65,7 +67,7 @@ const CreateNewsModal: React.FC<ModalProps> = ({
               <FaTimes size={30} />
             </button>
           </div>
-          <form onSubmit={ handleSubmit(onSubmin) }>
+          <form onSubmit={ handleSubmit(onSubmit) }>
             <div className="wrapper">
               <div>
                 <label htmlFor="title">Title</label>

@@ -11,7 +11,6 @@ import apps.news.serializers
 __all__ = ["IsStaffUser", "NewsListView", "NewsDetailView"]
 
 
-
 class NewsListView(rest_framework.views.APIView):
     def get_permissions(self):
         if self.request.method == "POST":
@@ -104,4 +103,3 @@ class NewsDetailView(rest_framework.views.APIView):
         return rest_framework.response.Response(
             resstatus=rest_framework.status.HTTP_204_NO_CONTENT,
         )
-
