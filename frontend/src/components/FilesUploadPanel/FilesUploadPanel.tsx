@@ -1,4 +1,3 @@
-// frontend/src/components/UploadForm/UploadForm.tsx
 import React, { useState } from "react";
 import VideoDropZone from "./VideoDropZone";
 import ImageDropZone from "./ImageDropZone";
@@ -32,7 +31,7 @@ export const FilesUploadPanel: React.FC<UploadFormProps> = ({ onSubmit, classNam
     <div className={`upload-form-container ${ className }`}>
       <div className="upload-form">
         <VideoDropZone onChange={setVideo} />
-        <ImageDropZone onChange={setImages} />
+        {/* <ImageDropZone onChange={setImages} /> */}
         <div className="text-input-wrapper">
           <TextInput onTextChange={setText} />
           <button onClick={handleSubmit} className="submit-button">

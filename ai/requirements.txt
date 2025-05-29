@@ -1,0 +1,10 @@
+accelerate
+diffusers
+fastapi
+imageio
+moviepy
+Pillow
+python-multipart
+torch
+transformers
+uvicorn[standard]
