@@ -31,3 +31,22 @@ pip3 install -r ./requirements.txt
 cd ./ai/
 uvicorn manage:app --reload
 ```
+
+## Пример
+
+### Запрос
+
+```cmd
+curl -X POST "http://localhost:8000/api/v1/generate" \
+  -F "text=your text" \
+  -F "video=@path_your_file"
+```
+
+### Ответ
+
+```json
+{
+  "status":"success",
+  "image_url":"/static/generated/file_name.png"
+}
+```
