@@ -83,5 +83,5 @@ pip3 install -r ./requirements.txt
 
 ```cmd
 cd ./ai/
-uvicorn manage:app --reload
+uvicorn manage:app --reload 
 ```
